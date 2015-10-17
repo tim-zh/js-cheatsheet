@@ -414,6 +414,8 @@ o["id"] //123
 o["action"](2) //выполнится alert(123)
 //или просто через точку
 o.action(o.id)
+//также в любой объект можно добавлять новые поля
+o.hey = "hi";
 //получение длины строки или массива (a.length) - это тоже обращение к полю
 //for in можно использовать для прохода по всем полям объекта
 for (var field in o)
@@ -454,12 +456,13 @@ o.action.call({ id: -1 }, 0);
                 </section>
                 <section id="part20">
                   null, undefined
-                  <pre><code class="javascript">//слово null обозначает отсутствие значения в переменной или в чем-либо
+                  <pre><code class="javascript">//слово undefined обозначает отсутствие значения в переменной, поля в объекте или в чем-либо
 var vvv;
-vvv == null //== true
-//undefined похоже на null, только обозначает отсутствие самой переменной или поля (точнее имени)
+vvv == undefined
 vvv = { pi: 1 };
-vvv.mu == undefined //имени mu нет среди полей vvv
+vvv.mu == undefined //mu нет среди полей vvv
+//null похож на undefined, может использоваться, когда нужно явно задать значение переменной как несуществующее
+vvv.pi = null; //вместо null можно без проблем использовать undefined
 //проверку на null или undefined можно сократить
 if (vvv.pi != undefined)
   //...
