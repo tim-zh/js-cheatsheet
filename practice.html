@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/github-light.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="styles/idea.css">
+
+		<script src="scripts/highlight.pack.js"></script>
+
+		<title>javascript шпаргалка</title>
+	</head>
+
+	<body>
+		<header>
+			<div class="inner">
+				<h1>Js-cheatsheet</h1>
+                <h2><a href="index.html">введение для начинающих</a><a href="#">примеры/задачи</a></h2>
+			</div>
+		</header>
+
+		<div id="content-wrapper">
+			<div class="inner clearfix">
+                <aside>
+                    <ul>
+                        <li><a href="#part1">найти максимальный элемент массива</a></li>
+                        <li><a href="#part2">перемешать элементы массива</a></li>
+                        <li><a href="#part3">отсортировать массив по возрастанию</a></li>
+                    </ul>
+                </aside>
+
+				<section id="part1">
+                  найти максимальный элемент массива
+                  <pre><code class="javascript">function findMax(a) {
+  var result = undefined;
+  for (var i = 0; i < a.length; ++i) {
+    if (result == undefined || result < a[i])
+      result = a[i];
+  }
+  return result;
+}
+
+//второй вариант
+function findMax2(a) {
+  //reduce проходит по элементам массива и объединяет их
+  //в curr записывается текущий элемент, в prev - предыдущий результат выполнения функции-параметра
+  //или второй параметр reduce для первого элемента массива
+  //например, сложить все числа в массиве можно так: a.reduce(function(prev, curr) { return prev + curr }, 0)
+  //[1, 2, 3].reduce(function(prev, curr) { return prev * curr }, -1) будет считаться как (((-1 * 1) * 2) * 3)
+  return a.reduce(function(prev, curr) {
+    return prev == undefined || prev < curr ? curr : prev;
+  }, undefined);
+}</code></pre>
+                </section>
+
+                <section id="part2">
+                  перемешать элементы массива
+                  <pre><code class="javascript">function shuffle(a) {
+  var result = [];
+  for (var i = 0; i < a.length; ++i) {
+    var index = Math.floor(Math.random() * a.length); //новый случайный индекс для a[i]
+    while (result[index]) //если элемент с этим индексом уже есть, ищем следующую пустую позицию
+      index = (index + 1) % a.length;
+    result[index % a.length] = a[i];
+  }
+  return result;
+}</code></pre>
+                </section>
+
+                <section id="part3">
+                  отсортировать массив по возрастанию
+                  <pre><code class="javascript">function sort(a) {
+  function swap(i, j) {
+    var temp = a[i];
+    a[i] = a[j];
+    a[j] = temp;
+  }
+
+  for (var i = 0; i < a.length - 1; ++i)
+    for (var j = i + 1; j < a.length; ++j)
+      if (a[i] > a[j])
+        swap(i, j);
+}
+
+//сортировка пузырьком
+function bubbleSort(a) {
+  for (var i = 0; i < a.length - 1; ++i)
+    for (var j = 0; j < a.length - i - 1; ++j)
+      if (a[j] > a[j + 1]) {
+        var temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+      }
+}</code></pre>
+                </section>
+
+			</div>
+		</div>
+
+
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>

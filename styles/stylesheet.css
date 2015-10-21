@@ -446,6 +446,18 @@ a:hover {
 	color: #2268b2;
 }
 
+h2 a {
+	background-color: #275da1;
+	border-radius: 6px;
+	padding: 0 6px;
+	margin-right: 6px;
+	color: #fff;
+}
+
+h2 a:hover {
+	color: #9ddcff;
+}
+
 header {
 	padding-top: 40px;
 	padding-bottom: 40px;
