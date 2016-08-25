@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="styles/github-light.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="styles/print.css" media="print">
+  <link rel="stylesheet" type="text/css" href="styles/idea.css">
+
+  <script src="scripts/highlight.pack.js"></script>
+
+  <title>javascript шпаргалка</title>
+</head>
+
+<body>
+<header>
+  <div class="inner">
+    <h1>Js-cheatsheet</h1>
+    <h2><a href="index.html">введение для начинающих</a><a href="practice.html">примеры/задачи</a><a href="#">v2</a></h2>
+  </div>
+</header>
+
+<div id="content-wrapper">
+  <div class="inner clearfix">
+    <section id="part1">
+                  <pre><code class="javascript">//комментарий
+
+//арифметика
+-2 / 1 * (3.14 + 4); // == -14.28
+
+//строки
+"abc" + 'def'; // == "abcdef"
+"abcd".length; // == 4
+"abcd".charAt(2); // == "c"
+
+//переменные
+var name = 1;
+var v = 2;
+name + v + 3; // == 6
+var v2 = "abc".charAt(name); // == "b"
+
+//булеаны
+true;
+false;
+1 < 2; // == true
+1 >= 2; // == false
+1 == 1; // == true
+1 != 2; // == true
+"ab" != "a"; // == true
+a && b; //И, если a и b равны true, то true, иначе false
+a || b; //ИЛИ, если или a, или b равны true, то true, иначе false
+!a; //НЕ, если a равно false, то true, иначе false
+
+//массивы
+var array = [1, 2, 3];
+array[0] == 1;
+array[2] = 5; // [1, 2, 5]
+var a = array[array[0]] // == 2, array[array[0]] == array[1] == 2
+array.append(4); // [1, 2, 5, 4]
+
+//вывод сообщения
+alert("hello");
+//вывод сообщения с полем для ввода
+var p = prompt("enter a name");
+
+//блоки кода
+{
+  var v = 1;
+  alert(v + 1);
+}
+var v2 = 2;
+
+//условия
+var v = 1;
+if (1 < 4) {
+  v = v + 1;
+} else {
+  v = -2;
+} // v == 2
+
+//циклы
+var v = 1;
+while (v < 4) {
+  v = v + 1;
+  alert(v);
+} // alert(2) alert(3) alert(4)
+var a = [1, 2];
+for (var i in a) {
+  alert(i);
+} // alert(1) alert(2)
+
+//функции
+function name() {
+  alert("hello");
+}
+name(); // alert("hello")
+function sum(a, b) {
+  var s = a + b;
+  return s;
+}
+sum(1, 2); // == 3
+var f = (a, b) => a + b
+f(1, 2); // == 3
+var max = (a, b) => {
+  if (a > b)
+    return a;
+  else
+    return b;
+};
+max(1, 2); // == 2
+
+//объекты
+var o = {
+  p: 3,
+  m: function(x) { return x * 2; }
+  m2: function() { return this.p * 2; }
+};
+o.m(o.p); // == 6
+o.m2(); // == 6
+
+//обработка ошибок
+try {
+  o = { doIt: function() { alert("do it!"); } };
+  o.doId();
+} catch (ex) {
+  alert(ex);
+}
+
+//работа с массивами
+var a = [1, 2, 3];
+a.forEach(alert); // alert(1) alert(2) alert(3)
+var a2 = a.filter(e => e != 3); // a2 == [1, 2]
+var a3 = a.map(e => e + "!"); // a3 == ["1!", "2!", "3!"]
+                  </code></pre>
+    </section>
+
+  </div>
+</div>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
