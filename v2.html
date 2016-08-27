@@ -39,7 +39,7 @@
 var name = 1;
 var v = 2;
 name + v + 3; // == 6
-var v2 = "abc".charAt(name); // == "b"
+var v2 = "abc".charAt(v); // == "c"
 
 //булеаны
 true;
@@ -55,9 +55,10 @@ a || b; //ИЛИ, если или a, или b равны true, то true, ина
 
 //массивы
 var array = [1, 2, 3];
-array[0] == 1;
+var v = array[0]; // v == 1
 array[2] = 5; // [1, 2, 5]
-var a = array[array[0]] // == 2, array[array[0]] == array[1] == 2
+var a = array[array[0]]; // == 2, array[array[0]] == array[1] == 2
+array.length; // == 3
 array.append(4); // [1, 2, 5, 4]
 
 //вывод сообщения
@@ -101,7 +102,7 @@ function sum(a, b) {
   return s;
 }
 sum(1, 2); // == 3
-var f = (a, b) => a + b
+var f = (a, b) => a + b;
 f(1, 2); // == 3
 var max = (a, b) => {
   if (a > b)
@@ -114,7 +115,7 @@ max(1, 2); // == 2
 //объекты
 var o = {
   p: 3,
-  m: function(x) { return x * 2; }
+  m: function(x) { return x * 2; },
   m2: function() { return this.p * 2; }
 };
 o.m(o.p); // == 6
@@ -132,8 +133,7 @@ try {
 var a = [1, 2, 3];
 a.forEach(alert); // alert(1) alert(2) alert(3)
 var a2 = a.filter(e => e != 3); // a2 == [1, 2]
-var a3 = a.map(e => e + "!"); // a3 == ["1!", "2!", "3!"]
-                  </code></pre>
+var a3 = a.map(e => e + "!"); // a3 == ["1!", "2!", "3!"]</code></pre>
     </section>
 
   </div>
